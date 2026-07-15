@@ -1,0 +1,152 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+}
+
+/* HEADER */
+
+header{
+    background:#000;
+    height:70px;
+    padding:0 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo-nav img{
+    width:55px;
+}
+
+nav{
+    display:flex;
+    gap:18px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:13px;
+}
+
+.activo{
+    background:white;
+    color:black;
+    padding:5px 10px;
+    border-radius:5px;
+}
+
+.botones button{
+    border:none;
+    padding:8px 14px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.btn-claro{
+    background:white;
+}
+
+.btn-oscuro{
+    background:#333;
+    color:white;
+}
+
+.botones a{
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:6px;
+    margin-left:5px;
+    display:inline-block;
+    font-size:14px;
+}
+
+.btn-claro{
+    background:white;
+    color:black;
+}
+
+.btn-oscuro{
+    background:#333;
+    color:white;
+}
+
+/* LOGIN */
+
+.login-container{
+    text-align:center;
+    padding:30px 20px 50px;
+}
+
+.logo-principal{
+    width:260px;
+    margin-bottom:10px;
+}
+
+.login-container h2{
+    color:#777;
+    font-size:20px;
+    font-weight:normal;
+    margin-bottom:20px;
+}
+
+.login-box{
+    width:420px;
+    margin:auto;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:25px;
+}
+
+.login-box form{
+    display:flex;
+    flex-direction:column;
+}
+
+.login-box label{
+    text-align:left;
+    margin-bottom:8px;
+    margin-top:10px;
+}
+
+.login-box input{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.login-box button{
+    margin-top:15px;
+    padding:12px;
+    background:#2c2c2c;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#2a2a2a;
+    color:white;
+    display:flex;
+    justify-content:space-around;
+    padding:40px;
+    margin-top:40px;
+}
+
+footer h4{
+    margin-bottom:15px;
+}
+
+footer p{
+    margin-bottom:8px;
+}

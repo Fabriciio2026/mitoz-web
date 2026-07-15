@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitoz Cultural Bar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.webp" alt="Mitoz">
+        </div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="menu.html">Menú</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="galeria.html">Galería</a>
+            <a href="contacto.html">Contacto</a>        
+        </nav>
+
+        <div class="botones">
+    <a href="login.html" class="btn-claro">Iniciar</a>
+    <a href="registro.html" class="btn-oscuro">Registrate</a>
+</div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="overlay">
+            <img src="images/logo.webp" alt="Logo" class="hero-logo">
+
+            <h1>Gastronomía - Misterio - Experiencia</h1>
+
+            <div class="hero-buttons">
+    <a href="pedidos.html" class="hero-btn">Pedir Ahora</a>
+    <a href="reservas.html" class="hero-btn">Reserva Mesa</a>
+    <a href="menu.html" class="hero-btn">Ver Menú</a>
+</div>
+        </div>
+    </section>
+
+    <!-- RESEÑAS -->
+    <section class="reviews">
+
+        <h2>Reseñas</h2>
+        <p>Más...</p>
+
+        <div class="reviews-container">
+
+            <div class="card">
+                <h3>Raquel Rodriguez</h3>
+                <p>★★★★★</p>
+                <p>Las mejores hamburguesas de la ciudad.</p>
+            </div>
+
+            <div class="card">
+                <h3>Sebastian Sanchez</h3>
+                <p>★★★★★</p>
+                <p>Excelente ambiente y comida.</p>
+            </div>
+
+            <div class="card">
+                <h3>Cristofer Aliaga</h3>
+                <p>★★★★★</p>
+                <p>Buena relación precio-calidad.</p>
+            </div>
+
+            <div class="card">
+                <h3>Diego Fernandez</h3>
+                <p>★★★★★</p>
+                <p>La experiencia fue increíble.</p>
+            </div>
+
+            <div class="card form-card">
+                <h3>Deja tu reseña</h3>
+
+                <input type="text" placeholder="Nombre">
+
+                <input type="text" placeholder="Calificación">
+
+                <textarea placeholder="Cuéntanos tu experiencia"></textarea>
+
+                <button>Enviar</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-column">
+    <img src="images/logo.webp" alt="Logo" class="footer-logo">
+
+    <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+</div>
+
+        <div class="footer-column">
+            <h4>Tienda</h4>
+            <p>Jr. Ayacucho 1527</p>
+            <p>Cajamarca</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Horario</h4>
+            <p>Lunes a Viernes</p>
+            <p>12:00 - 23:00</p>
+            <p>Sábado a Domingo</p>
+            <p>12:00 - 02:00</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Ayuda y Legales</h4>
+            <p>Política de Privacidad</p>
+            <p>Términos y Condiciones</p>
+            <p>Libro de Reclamaciones</p>
+        </div>
+
+        <div class="footer-bottom">
+    © 2026 Mitoz Cultural Bar. Cultura servida con alma y misterio para nuestros clientes
+</div>
+    </footer>
+
+    <!-- CHATBOT MITOZ -->
+<div class="chatbot-button" onclick="toggleChat()">
+    🤖
+</div>
+
+<div class="chat-window" id="chatWindow">
+
+    <div class="chat-header">
+        <img src="images/logo.webp" alt="Mitoz">
+        <span>Mitoz Assistant</span>
+        <button onclick="toggleChat()">✕</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+
+        <div class="bot-message">
+    ¡Hola! Bienvenido a Mitoz Cultural Bar.
+    <br><br>
+     ¿Quieres reservar una mesa?
+</div>
+
+    </div>
+
+    <div class="chat-input">
+        <input type="text" id="mensajeUsuario" placeholder="Escribe aquí...">
+        <button onclick="enviarMensaje()">➤</button>
+    </div>
+
+</div>
+
+<script>
+
+let reserva = {
+    fecha:"",
+    hora:"",
+    personas:""
+};
+
+let paso = 0;
+
+function toggleChat(){
+
+    const chat = document.getElementById("chatWindow");
+
+    if(chat.style.display === "flex"){
+        chat.style.display = "none";
+    }else{
+        chat.style.display = "flex";
+    }
+}
+
+function agregarBot(texto){
+
+    document.getElementById("chatMessages").innerHTML +=
+    `<div class="bot-message">${texto}</div>`;
+}
+
+function agregarUsuario(texto){
+
+    document.getElementById("chatMessages").innerHTML +=
+    `<div class="user-message">${texto}</div>`;
+}
+
+function enviarMensaje(){
+
+    let input = document.getElementById("mensajeUsuario");
+    let texto = input.value.trim();
+
+    if(texto === "") return;
+
+    agregarUsuario(texto);
+
+    if(paso === 0){
+
+        agregarBot("📅 ¿Qué fecha deseas reservar?");
+        paso = 1;
+
+    }else if(paso === 1){
+
+        reserva.fecha = texto;
+
+        agregarBot("🕒 ¿A qué hora deseas reservar?");
+        paso = 2;
+
+    }else if(paso === 2){
+
+        reserva.hora = texto;
+
+        agregarBot("👥 ¿Cuántas personas asistirán?");
+        paso = 3;
+
+    }else if(paso === 3){
+
+        reserva.personas = texto;
+
+        agregarBot(`
+        <strong>Resumen de Reserva</strong><br><br>
+        📅 Fecha: ${reserva.fecha}<br>
+        🕒 Hora: ${reserva.hora}<br>
+        👥 Personas: ${reserva.personas}<br><br>
+
+        <button class="option-btn" onclick="enviarWhatsapp()">
+        Confirmar Reserva
+        </button>
+        `);
+
+        paso = 4;
+    }
+
+    input.value = "";
+}
+
+function enviarWhatsapp(){
+
+    let mensaje =
+    "🍹 RESERVA MITOZ %0A%0A"+
+    "Fecha: "+reserva.fecha+"%0A"+
+    "Hora: "+reserva.hora+"%0A"+
+    "Personas: "+reserva.personas;
+
+    window.open(
+    "https://wa.me/51915181156?text="+mensaje,
+    "_blank"
+    );
+}
+
+</script>
+</body>
+</html>
